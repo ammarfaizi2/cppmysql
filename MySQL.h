@@ -242,26 +242,20 @@ public:
 			free(bind_);
 	}
 
-	inline MYSQL_BIND *BindStr(size_t i, enum enum_field_types type,
-				   const char *str, size_t len) noexcept
+	inline MYSQL_BIND *BindStr(size_t i, const char *str, size_t len)
+		noexcept
 	{
 		MYSQL_BIND *b = &bind_[i];
 
-		b->buffer_type = type;
+		b->buffer_type = MYSQL_TYPE_STRING;
 		b->buffer = const_cast<void *>(static_cast<const void *>(str));
 		b->buffer_length = len;
 		return b;
 	}
 
-	inline MYSQL_BIND *BindStr(size_t i, enum enum_field_types type,
-				   const char *str) noexcept
+	inline MYSQL_BIND *BindStr(size_t i, const char *str) noexcept
 	{
-		MYSQL_BIND *b = &bind_[i];
-
-		b->buffer_type = type;
-		b->buffer = const_cast<void *>(static_cast<const void *>(str));
-		b->buffer_length = strlen(str);
-		return b;
+		return BindStr(i, str, strlen(str));
 	}
 
 	inline MYSQL_BIND *Bind(size_t i, enum enum_field_types type,

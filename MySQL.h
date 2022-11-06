@@ -12,18 +12,6 @@
 #include <cstdlib>
 #include <cassert>
 
-#ifndef likely
-#define likely(COND) __builtin_expect(!!(COND), 1)
-#endif
-
-#ifndef unlikely
-#define unlikely(COND) __builtin_expect(!!(COND), 0)
-#endif
-
-#ifndef noinline
-#define noinline __attribute__((__noinline__))
-#endif
-
 namespace CppMySQL {
 
 #define SetErr(...)					\

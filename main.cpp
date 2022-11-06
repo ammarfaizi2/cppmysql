@@ -1,5 +1,6 @@
 
 #include "MySQL.h"
+#include "helpers.h"
 
 #include <cstdio>
 #include <cstdarg>

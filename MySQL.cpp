@@ -1,14 +1,7 @@
 
 #define KEEP_CPPMYSQL_HELPER_MACROS
 #include "MySQL.h"
-
-#ifndef __cold
-#define __cold __attribute__((__cold__))
-#endif
-
-#ifndef __hot
-#define __hot __attribute__((__hot__))
-#endif
+#include "helpers.h"
 
 namespace CppMySQL {
 
